@@ -1,0 +1,19 @@
+base <http://danbri.org/foaf.rdf>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+
+select ?name ?seeAlso ?sameAs ?topicOf
+from <http://danbri.org/foaf.rdf>
+where
+{ 
+   ?person a foaf:Person .
+   ?person foaf:name ?name .
+   {
+      { ?person rdfs:seeAlso ?seeAlso. } 
+      union
+      { ?person owl:sameAs ?sameAs. }
+      union
+      { ?person foaf:isPrimaryTopicOf ?topicOf. }
+   }
+}

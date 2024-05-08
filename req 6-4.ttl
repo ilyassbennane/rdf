@@ -1,0 +1,10 @@
+base <http://danbri.org/foaf.rdf>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+
+select * 
+from <http://danbri.org/foaf.rdf>
+where
+{ 
+   <#danbri> foaf:knows ?friend .
+}
+

@@ -1,0 +1,21 @@
+base <http://danbri.org/foaf.rdf>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+
+select ?name ?email 
+from <http://danbri.org/foaf.rdf>
+where
+{ 
+  ?x a foaf:Person.
+  ?x foaf:name ?name.
+  ?x foaf:mbox ?email.
+}
+order by asc(?name)
+limit 10 offset 1
+
+
+ 
+
+
+
+
+
